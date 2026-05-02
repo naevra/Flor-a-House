@@ -1,0 +1,71 @@
+.testimoni {
+    padding: 120px 8%;
+    text-align: center;
+    background: linear-gradient(135deg, #fff8fb, #fff);
+}
+
+.testimoni h2 {
+    font-family: 'Playfair Display', serif;
+    color: #ff5e8a;
+    font-size: 42px;
+    margin-bottom: 60px;
+}
+
+.reviews {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.review {
+    background: linear-gradient(135deg, #fff, #fff8fb);
+    padding: 40px 32px;
+    border-radius: 30px;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, .08);
+    border: 1px solid rgba(255, 94, 138, .1);
+    transition: all .4s ease;
+    position: relative;
+}
+
+.review::before {
+    content: '"';
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    font-size: 80px;
+    color: #ffdde1;
+    font-family: 'Playfair Display', serif;
+    z-index: 0;
+}
+
+.review:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 40px 120px rgba(255, 94, 138, .2);
+}
+
+.review-content {
+    position: relative;
+    z-index: 1;
+}
+
+.review p {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 24px;
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+.review h4 {
+    color: #ff5e8a;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+@media (max-width: 900px) {
+    .reviews {
+        grid-template-columns: 1fr;
+    }
+}

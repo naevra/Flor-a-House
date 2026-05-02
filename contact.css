@@ -1,0 +1,201 @@
+.contact {
+    padding: 100px 8%;
+    text-align: center;
+    background: linear-gradient(135deg, #ffeef4, #fff0f5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact h2 {
+    font-family: 'Playfair Display', serif;
+    color: #ff5e8a;
+    font-size: 42px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.contact h2::after {
+    content: '✨';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% { transform: translateX(-50%) scale(1) rotate(0deg); opacity: 1; }
+    50% { transform: translateX(-50%) scale(1.2) rotate(180deg); opacity: .7; }
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.contact p {
+    font-size: 20px;
+    color: #666;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, .9), rgba(255, 248, 251, .9));
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .08);
+    border: 1px solid rgba(255, 94, 138, .15);
+    transition: all .3s ease;
+    backdrop-filter: blur(10px);
+    width: 100%;
+    max-width: 400px;
+}
+
+.contact p:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 60px rgba(255, 94, 138, .25);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(255, 248, 251, 1));
+}
+
+.contact p i {
+    font-size: 24px;
+    color: #ff5e8a;
+    width: 32px;
+    text-align: center;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .contact {
+        padding: 80px 5%;
+    }
+    
+    .contact h2 {
+        font-size: 36px;
+        margin-bottom: 32px;
+    }
+    
+    .contact p {
+        font-size: 18px;
+        padding: 14px 20px;
+        gap: 12px;
+    }
+    
+    .contact p i {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact p {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+        padding: 20px;
+    }
+}
+/* WHATSAPP BUTTON */
+.whatsapp-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    font-size: 20px;
+    color: #25D366 !important;
+    text-decoration: none;
+    margin: 0;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white !important;
+    padding: 20px 32px;
+    border-radius: 25px;
+    box-shadow: 0 20px 50px rgba(37, 211, 102, .4);
+    border: none;
+    font-weight: 600;
+    transition: all .3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    min-height: 70px;
+    backdrop-filter: blur(10px);
+}
+
+.whatsapp-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.3), transparent);
+    transition: .6s;
+}
+
+.whatsapp-btn:hover::before {
+    left: 100%;
+}
+
+.whatsapp-btn:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 30px 70px rgba(37, 211, 102, .5);
+    text-decoration: none !important;
+    color: white !important;
+}
+
+.whatsapp-btn i {
+    font-size: 28px;
+    width: 40px;
+    text-align: center;
+}
+
+.whatsapp-btn span {
+    font-size: 14px;
+    opacity: .9;
+    white-space: nowrap;
+}
+
+/* Email tetap biasa */
+.email-info {
+    font-size: 20px;
+    color: #666;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, rgba(255,255,255,.9), rgba(255,248,251,.9));
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.08);
+    border: 1px solid rgba(255,94,138,.15);
+    transition: all .3s ease;
+    backdrop-filter: blur(10px);
+    width: 100%;
+    max-width: 400px;
+    cursor: pointer;
+}
+
+.email-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 60px rgba(255,94,138,.25);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .whatsapp-btn {
+        flex-direction: column;
+        gap: 8px;
+        padding: 24px 20px;
+        min-height: auto;
+    }
+    
+    .whatsapp-btn span {
+        font-size: 12px;
+    }
+}

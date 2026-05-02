@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masuk - Floréa House</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #fff8fb 0%, #ffeef4 50%, #fffaf2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        .login-container {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(255,94,138,.3);
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff5e8a, #ff8ba7);
+        }
+        .login-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: #ff5e8a;
+            margin-bottom: 20px;
+        }
+        .login-title {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .login-subtitle {
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #ff5e8a, #ff8ba7);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: all .3s ease;
+            box-shadow: 0 15px 35px rgba(255,94,138,.4);
+            position: relative;
+            overflow: hidden;
+        }
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 25px 50px rgba(255,94,138,.5);
+        }
+        .login-btn:active {
+            transform: translateY(-1px);
+        }
+        .guest-btn {
+            width: 100%;
+            padding: 16px;
+            background: white;
+            color: #ff5e8a;
+            border: 2px solid #ff5e8a;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .3s ease;
+        }
+        .guest-btn:hover {
+            background: #ff5e8a;
+            color: white;
+            transform: translateY(-2px);
+        }
+        .back-home {
+            display: inline-block;
+            margin-top: 30px;
+            color: #ff5e8a;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-home:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar" style="position: absolute; top: 0; background: rgba(255,255,255,.95);">
+        <div class="logo">Floréa House</div>
+        <div class="menu">
+            <a href="day1.html"><i class="fas fa-home"></i> Home</a>
+            <a href="katalog.html" class="active"><i class="fas fa-shopping-bag"></i> Shop</a>
+        </div>
+    </nav>
+
+    <div class="login-container">
+        <div class="login-logo">🌸 Floréa House</div>
+        <h1 class="login-title">Selamat Datang!</h1>
+        <p class="login-subtitle">Masuk untuk memulai belanja atau lanjut sebagai tamu</p>
+
+        <form onsubmit="handleLogin(event)">
+    <input type="email" id="email" placeholder="Email" required style="width:100%;padding:15px;margin-bottom:15px;border-radius:15px;border:1px solid #ddd;">
+    
+    <input type="password" id="password" placeholder="Password" required style="width:100%;padding:15px;margin-bottom:20px;border-radius:15px;border:1px solid #ddd;">
+
+    <button type="submit" class="login-btn">
+        <i class="fas fa-sign-in-alt"></i> Masuk
+    </button>
+</form>
+        
+       <button class="guest-btn" onclick="goToCatalogGuest()">
+    <i class="fas fa-shopping-bag"></i> Lanjut Belanja (Tamu)
+</button>
+        
+        <a href="day1.html" class="back-home">
+            <i class="fas fa-arrow-left"></i> Kembali ke Home
+        </a>
+    </div>
+
+    <script>
+    // FIXED STATE MANAGEMENT
+  
+function handleLogin(event) {
+    event.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    // contoh validasi sederhana
+    if (email === "admin@gmail.com" && password === "12345") {
+        localStorage.setItem("userLoggedIn", "true");
+        localStorage.setItem("userName", "Pelanggan");
+
+        // pindah ke katalog
+        window.location.href = "katalog.html";
+    } else {
+        alert("Email atau password salah!");
+    }
+}
+    
+    function goToCatalogGuest() {
+        localStorage.removeItem('userLoggedIn');
+        localStorage.removeItem('redirectAfterLogin'); // CLEAR
+        window.location.href = 'katalog.html';
+    }
+</script>
+</body>
+</html>

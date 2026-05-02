@@ -1,0 +1,96 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(20px);
+    background: linear-gradient(135deg, rgba(255, 255, 255, .95), rgba(255, 248, 251, .9));
+    border-bottom: 1px solid rgba(255, 94, 138, .1);
+    z-index: 100;
+    box-shadow: 0 8px 32px rgba(255, 94, 138, .1);
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    background: linear-gradient(135deg, #ff5e8a, #ff8ba7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    position: relative;
+}
+
+.logo::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(135deg, #ff5e8a, #ff8ba7);
+    transition: .3s ease;
+}
+
+.logo:hover::after {
+    width: 100%;
+}
+
+.menu {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    position: relative;
+    transition: all .3s ease;
+    padding: 8px 0;
+}
+
+.menu a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, #ff5e8a, #ff8ba7);
+    transition: .3s ease;
+    transform: translateX(-50%);
+}
+
+.menu a:hover::before {
+    width: 100%;
+}
+
+.menu a:hover {
+    color: #ff5e8a;
+    transform: translateY(-2px);
+}
+
+.signup {
+    padding: 12px 24px !important;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #ff5e8a, #ff8ba7);
+    color: white !important;
+    box-shadow: 0 10px 25px rgba(255, 94, 138, .3);
+    transition: all .3s ease;
+}
+
+.signup:hover {
+    box-shadow: 0 15px 35px rgba(255, 94, 138, .4);
+    transform: translateY(-3px) scale(1.05);
+}
+
+@media (max-width: 900px) {
+    .menu {
+        display: none;
+    }
+}

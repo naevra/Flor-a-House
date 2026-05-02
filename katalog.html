@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Floréa Shop</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f6f6f6;
+}
+
+/* HEADER */
+.header {
+    text-align: center;
+    padding: 20px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #ff5e8a;
+}
+
+/* GRID PADAT */
+.catalog {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px; /* kecil biar rapat */
+    padding: 15px;
+}
+
+/* CARD */
+.card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; 
+    display: block;
+}
+
+/* CONTENT */
+.card-content {
+    padding: 8px;
+}
+
+.card h3 {
+    font-size: 13px;
+    margin: 0;
+}
+
+/* DESKRIPSI */
+.desc {
+    font-size: 11px;
+    color: #777;
+    margin: 3px 0;
+    line-height: 1.2;
+    height: 28px;
+    overflow: hidden;
+}
+
+/* HARGA */
+.price {
+    color: #ff5e8a;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+/* POPUP */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: white;
+    padding: 15px;
+    width: 300px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.popup-content img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.close {
+    float: right;
+    cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px){
+    .catalog {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="header">🌸 Floréa Collection</div>
+
+<div class="catalog">
+
+    <div class="card" onclick="showDetail('Romantic Bouquet','bungaa1.jpeg','Buket romantis premium dengan mawar pilihan.',200000)">
+        <img src="bungaa1.jpeg">
+        <div class="card-content">
+            <h3>Romantic Bouquet</h3>
+            <p class="desc">Buket romantis premium.</p>
+            <p class="price">Rp200.000</p>
+        </div>
+    </div>
+
+    <div class="card" onclick="showDetail('Wedding Elegance','bunga2.jpeg','Bunga elegan untuk momen pernikahan.',500000)">
+        <img src="bunga2.jpeg">
+        <div class="card-content">
+            <h3>Wedding Elegance</h3>
+            <p class="desc">Bunga elegan pernikahan.</p>
+            <p class="price">Rp500.000</p>
+        </div>
+    </div>
+
+    <div class="card" onclick="showDetail('Birthday Bloom','bungaa3.jpeg','Hadiah ulang tahun ceria.',300000)">
+        <img src="bungaa3.jpeg">
+        <div class="card-content">
+            <h3>Birthday Bloom</h3>
+            <p class="desc">Buket ulang tahun.</p>
+            <p class="price">Rp300.000</p>
+        </div>
+    </div>
+
+    <div class="card" onclick="showDetail('Luxury Roses','bunga4.jpeg','Mawar premium eksklusif.',900000)">
+        <img src="bunga4.jpeg">
+        <div class="card-content">
+            <h3>Luxury Roses</h3>
+            <p class="desc">Mawar premium.</p>
+            <p class="price">Rp900.000</p>
+        </div>
+    </div>
+
+    <div class="card" onclick="showDetail('Summer Meadow Harmony','mixbunga.jpeg','Perpaduan kontras yang indah antara cerahnya bunga matahari dengan lembutnya warna pastel dari bunga lily dan hydrangea.',400000)">
+        <img src="mixbunga.jpeg">
+        <div class="card-content">
+            <h3>Summer Meadow Harmony</h3>
+            <p class="desc">Bunga taman.</p>
+            <p class="price">Rp400.000</p>
+        </div>
+    </div>
+
+    <div class="card" onclick="showDetail('Pure Lace Elegance','bungaputih.jpeg','Keanggunan bunga serba putih dari gerbera, tulip, dan babys breath.',350000)">
+        <img src="bungaputih.jpeg">
+        <div class="card-content">
+            <h3>Pure Lace Elegance</h3>
+            <p class="desc">Bunga putih elegan.</p>
+            <p class="price">Rp350.000</p>
+        </div>
+    </div>
+
+    <div class="card" onclick="showDetail('Golden Sunray','bungasun.jpeg','Pancaran cahaya kuning keemasan dari kelopak bunga matahari yang dominan.',425000)">
+        <img src="bungasun.jpeg">
+        <div class="card-content">
+            <h3>Golden Sunray</h3>
+            <p class="desc">Bunga matahari.</p>
+            <p class="price">Rp425.000</p>
+        </div>
+    </div>
+
+    <div class="card" onclick="showDetail('Graduation Bouquet','grad.jpg','Kado kelulusan yang sempurna untuk merayakan pencapaian spesial.',300000)">
+        <img src="grad.jpg">
+        <div class="card-content">
+            <h3>Graduation Bouquet</h3>
+            <p class="desc">Buket untuk </p>
+            <p class="price">Rp300.000</p>
+        </div>
+    </div>
+
+</div>
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup()">✖</span>
+        <img id="popup-img">
+        <h3 id="popup-title"></h3>
+        <p id="popup-desc"></p>
+        <p class="price" id="popup-price"></p>
+    </div>
+</div>
+
+<script>
+function showDetail(name, img, desc, price){
+    document.getElementById("popup").style.display = "flex";
+    document.getElementById("popup-img").src = img;
+    document.getElementById("popup-title").innerText = name;
+    document.getElementById("popup-desc").innerText = desc;
+    document.getElementById("popup-price").innerText = "Rp" + price;
+}
+
+function closePopup(){
+    document.getElementById("popup").style.display = "none";
+}
+</script>
+
+</body>
+</html>
